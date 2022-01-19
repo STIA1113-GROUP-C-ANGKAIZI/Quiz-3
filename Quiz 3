@@ -35,7 +35,7 @@ public class Quiz1 {
 		switch (control) {
 		case 1 : System.out.println("Your number found in program.");
 		break;
-		case 2 : System.out.println("Your number not found.");
+		case 0 : System.out.println("Your number not found.");
 		break;
 		}
 		
