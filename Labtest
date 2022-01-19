@@ -1,0 +1,70 @@
+package quiz2;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Set;
+public class Labtest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner scan = new Scanner (System.in);
+		System.out.println("How many word you want to enter? ");
+		int quantity = scan.nextInt();
+		String [] words = new String [quantity];
+		
+		for (int i=0; i<quantity; i++) {
+			System.out.println("Total " + quantity + " words. Please enter word here: ");
+			words[i] = scan.next();
+		}
+		
+		count(words, quantity);
+		
+	}
+  
+	public static void count(String [] words, int quantity) {
+		
+		Map<String, Integer> countWord = new HashMap<String, Integer>();
+		
+		for (String word: words) {
+			if(countWord.containsKey(word)) {
+				countWord.put(word.toLowerCase(), countWord.get(word)+1);
+			}
+			else {
+				countWord.put(word, 1);
+			}
+		}
+		
+		Set<String> wordsInString = countWord.keySet();
+		
+		for(String word: wordsInString) {
+			if (countWord.get(word)>0) {
+				System.out.println(word + ", " + countWord.get(word));
+			}
+			
+		}
+	}
+	
+
+}
+
+
+output:
+How many word you want to enter? 
+6
+Total 6 words. Please enter word here: 
+hello
+Total 6 words. Please enter word here: 
+world
+Total 6 words. Please enter word here: 
+hello
+Total 6 words. Please enter word here: 
+germany
+Total 6 words. Please enter word here: 
+hello
+Total 6 words. Please enter word here: 
+berlin
+world, 1
+germany, 1
+hello, 3
+berlin, 1
